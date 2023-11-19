@@ -1,12 +1,22 @@
 import EventoMap from '@/components/ui/evento-map'
 import { fetchEvent } from '@/lib/api'
 import { getStrapiURL } from '@/lib/api-helpers'
+import { Metadata } from 'next'
 
 type Props = {
   params: {
     eventId: number
   }
 }
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { eventId } = params
+  const event = await fetchEvent(eventId)
+  return {
+    title: `Imperio Español - ${event.Titulo}`
+  }
+}
+
 export default async function Evento({ params }: Props) {
   const { eventId } = params
   const event = await fetchEvent(eventId)
