@@ -61,7 +61,9 @@ export default async function Evento({ params }: Props) {
           </svg>
         </a>
       </div>
-      <EventoMap lat={event.Latitud} long={event.Longitud} zoom={7} />
+      {event.Latitud !== 0 && event.Longitud !== 0 && (
+        <EventoMap lat={event.Latitud} long={event.Longitud} zoom={7} />
+      )}
     </section>
   )
 }
