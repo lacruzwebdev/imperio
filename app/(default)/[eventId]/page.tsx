@@ -24,17 +24,34 @@ export default async function Evento({ params }: Props) {
   const options = {
     dateStyle: 'long'
   } as const
-  const date = new Intl.DateTimeFormat('es-ES', options).format(
-    new Date(event.Fecha)
+  const eventDate = new Date(event.Fecha)
+  const date = new Intl.DateTimeFormat('es-ES', options)
+    .format(eventDate)
+    .split(' ')
+    .slice(0, -2)
+    .join(' ')
+  const year = new Intl.DateTimeFormat('es-ES', { year: 'numeric' }).format(
+    eventDate
+  )
+  const day = new Intl.DateTimeFormat('es-ES', { weekday: 'long' }).format(
+    eventDate
   )
   return (
     <section className="max-w-screen-xl mx-auto p-8">
-      <h2 className="text-center mb-2 text-xl text-primary font-bold tracking-tight">
-        {date}
-      </h2>
+      <div className="flex w-full justify-between">
+        <p className="text-center mb-2 text-xl text-primary font-bold tracking-tight">
+          {year}
+        </p>
+        <p className="text-center mb-2 text-xl text-primary font-bold tracking-tight">
+          {date}
+        </p>
+        <p className="text-center mb-2 text-xl text-primary font-bold tracking-tight">
+          {day}
+        </p>
+      </div>
       {img && (
         <img
-          className="rounded-t-lg mx-auto"
+          className="rounded-t-lg mx-auto w-full"
           width={img[0].formats.large.width}
           height={img[0].formats.large.height}
           src={getStrapiURL(img[0].formats.large.url)}
