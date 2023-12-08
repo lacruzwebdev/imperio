@@ -1,6 +1,6 @@
 type StrapiImage = {
    id: number,
-   alternativeText?: string,
+   alternativeText: string,
    caption?: string,
    formats: {
       thumbnail: {

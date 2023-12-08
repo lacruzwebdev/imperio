@@ -26,6 +26,7 @@ export default async function Home({}: Props) {
             title={evento.Titulo}
             description={evento.Descripcion}
             img={evento.Imagen[0]}
+            relevancia={evento.Relevancia}
           />
         ))}
       </Grid>

@@ -14,7 +14,7 @@ export default function EventoMap({ lat, long, zoom = 7 }: Props) {
     <div className={`${classes.mainStyle} my-12`}>
       <Map
         mapboxAccessToken={process.env.NEXT_PUBLIC_MAPBOX_TOKEN}
-        mapStyle="mapbox://styles/mapbox/streets-v12"
+        mapStyle="mapbox://styles/mapbox/dark-v11"
         initialViewState={{
           latitude: lat,
           longitude: long,

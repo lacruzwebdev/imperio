@@ -3,6 +3,7 @@ type Evento = {
    Fecha: string,
    Titulo: string,
    Descripcion: string,
-   Imagen: StrapiImage[]
+   Imagen: StrapiImage[],
+   Relevancia: 0 | 1
 }
 
