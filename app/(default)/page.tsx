@@ -16,7 +16,7 @@ export default async function Home({}: Props) {
     <section className="max-w-screen-xl mx-auto p-8">
       <h1 className="acc-h">Imperio Español</h1>
       <p className="text-3xl mb-2">Tal día como hoy...</p>
-      <h2 className="text-primary text-xl mb-4">{date}</h2>
+      <p className="text-primary text-xl mb-4">{date}</p>
       <Grid>
         {data.map((evento: Evento, index: number) => (
           <Card

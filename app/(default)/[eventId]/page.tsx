@@ -60,7 +60,11 @@ export default async function Evento({ params }: Props) {
         />
       )}
       <h1 className="mt-8 text-2xl font-bold tracking-tight">{event.Titulo}</h1>
-      <p>{event.Descripcion}</p>
+      <p
+        dangerouslySetInnerHTML={{
+          __html: event.Descripcion.replace(/\n/g, '<br />')
+        }}
+      ></p>
       <div className="mt-2 mb-12 flex items-center gap-2">
         <p>
           Autor:{' '}

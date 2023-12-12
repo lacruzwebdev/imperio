@@ -48,7 +48,7 @@ export default function Card({
         >
           <div>
             <p className="text-primary">{fecha.substring(0, 4)}</p>
-            <h3 className="mb-2 text-2xl font-bold tracking-tight">{title}</h3>
+            <h2 className="mb-2 text-2xl font-bold tracking-tight">{title}</h2>
             <p className="mb-3 font-normal">
               {description.slice(0, descriptionMaxLength) + '...'}
             </p>
