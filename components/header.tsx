@@ -18,7 +18,13 @@ export default function Header() {
             <ul className="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white"></ul>
           </div>
           <Link href="/" className="flex items-center md:w-1/3">
-            <img src="/logo.webp" className="h-8 mr-3" alt="Imperio" />
+            <img
+              width={1020}
+              height={75}
+              src="/logo.webp"
+              className="w-full mr-3"
+              alt="Imperio"
+            />
           </Link>
           <div className="flex md:w-1/3"></div>
         </div>
