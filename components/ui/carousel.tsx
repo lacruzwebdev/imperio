@@ -2,9 +2,13 @@
 import { getStrapiURL } from '@/lib/api-helpers'
 import * as React from 'react'
 import 'yet-another-react-lightbox/styles.css'
+import 'yet-another-react-lightbox/plugins/thumbnails.css'
+import 'yet-another-react-lightbox/plugins/captions.css'
 
 import Lightbox from 'yet-another-react-lightbox'
 import Inline from 'yet-another-react-lightbox/plugins/inline'
+import Thumbails from 'yet-another-react-lightbox/plugins/thumbnails'
+import Captions from 'yet-another-react-lightbox/plugins/captions'
 
 type Props = {
   slides: any
@@ -13,6 +17,7 @@ type Props = {
 export default function Carousel({ slides }: Props) {
   const [open, setOpen] = React.useState(false)
   const [index, setIndex] = React.useState(0)
+  const thumbnailsRef = React.useRef(null)
 
   const toggleOpen = (state: boolean) => () => setOpen(state)
 
@@ -22,7 +27,8 @@ export default function Carousel({ slides }: Props) {
   const slidesArr = slides.map((image: any) => ({
     src: getStrapiURL(image.formats.large.url),
     width: image.formats.large.width,
-    height: image.formats.large.height
+    height: image.formats.large.height,
+    title: image.alternativeText
   }))
 
   return (
@@ -30,7 +36,16 @@ export default function Carousel({ slides }: Props) {
       <Lightbox
         index={index}
         slides={slidesArr}
-        plugins={[Inline]}
+        plugins={[Inline, Thumbails, Captions]}
+        thumbnails={{
+          ref: thumbnailsRef,
+          vignette: false,
+          border: 0,
+          padding: 0,
+          imageFit: 'cover',
+          width: 200,
+          height: 120
+        }}
         on={{
           view: updateIndex,
           click: toggleOpen(true)
@@ -38,7 +53,8 @@ export default function Carousel({ slides }: Props) {
         carousel={{
           padding: 0,
           spacing: 0,
-          imageFit: 'cover'
+          imageFit: 'cover',
+          finite: true
         }}
         inline={{
           style: {
@@ -54,6 +70,10 @@ export default function Carousel({ slides }: Props) {
           },
           navigationNext: {
             color: 'red'
+          },
+          root: {
+            '--yarl__thumbnails_container_background_color':
+              'rgba(255, 255, 255, 1)'
           }
         }}
       />
