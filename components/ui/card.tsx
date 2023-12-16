@@ -3,6 +3,7 @@ import CardTextSkeleton from './card-text-skeleton'
 import { Suspense } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
+import { createSlug } from '@/lib/helpers'
 
 /* eslint-disable @next/next/no-img-element */
 type Props = {
@@ -23,7 +24,7 @@ export default function Card({
 }: Props) {
   const descriptionMaxLength = 200
   return (
-    <Link href={`${id}`}>
+    <Link href={`${id}-${createSlug(title)}`}>
       <div
         className={`rounded-lg shadow h-full ${
           relevancia > 0 ? 'bg-primary' : 'bg-white'
