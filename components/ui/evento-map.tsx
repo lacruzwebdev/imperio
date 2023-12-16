@@ -24,7 +24,7 @@ export default function EventoMap({ lat, long, zoom = 7 }: Props) {
         minZoom={5}
       >
         <Popup
-          offset={25}
+          offset={0}
           latitude={lat}
           longitude={long}
           closeButton={false}
