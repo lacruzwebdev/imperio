@@ -8,11 +8,9 @@ import SocialLinks from './social-links'
 type Props = {}
 export default function NavMenu({}: Props) {
   return (
-    <div className="max-w-6xl mx-auto px-4 sm:px-6 text-xs">
+    <div className="mx-auto px-4 sm:px-6 text-xs">
       <div className="flex items-center justify-between">
-        {/* Desktop navigation */}
         <nav className="hidden md:flex md:grow">
-          {/* Desktop menu links */}
           <ul className="flex grow justify-end flex-wrap items-center">
             <li>
               <Link
