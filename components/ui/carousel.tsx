@@ -60,6 +60,7 @@ export default function Carousel({ slides }: Props) {
           style: {
             width: '100%',
             maxWidth: '900px',
+            minHeight: '500px',
             aspectRatio: '3 / 2',
             margin: '0 auto'
           }
