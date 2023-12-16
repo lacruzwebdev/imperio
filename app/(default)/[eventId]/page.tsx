@@ -50,13 +50,18 @@ export default async function Evento({ params }: Props) {
         </p>
       </div>
       {img && (
-        <img
-          className="rounded-t-lg mx-auto w-full"
-          width={img[0].formats.large.width}
-          height={img[0].formats.large.height}
-          src={getStrapiURL(img[0].formats.large.url)}
-          alt={img[0].alternativeText}
-        />
+        <div className="relative">
+          <img
+            className="rounded-t-lg mx-auto w-full"
+            width={img[0].formats.large.width}
+            height={img[0].formats.large.height}
+            src={getStrapiURL(img[0].formats.large.url)}
+            alt={img[0].alternativeText}
+          />
+          <span className="absolute bottom-8 left-8 text-white font-bold text-xl shadow-xl">
+            {img[0].alternativeText}
+          </span>
+        </div>
       )}
       <h1 className="mt-8 mb-4 text-2xl font-bold tracking-tight">
         {event.Titulo}
