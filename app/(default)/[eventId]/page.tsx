@@ -90,7 +90,7 @@ export default async function Evento({ params }: Props) {
           </svg>
         </a>
       </div>
-      <div className="mt-2 mb-12">
+      <div className="mt-2 mb-2">
         <p className="text-primary">
           Categorías:{' '}
           {event.Categorias.map(

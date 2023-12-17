@@ -25,7 +25,7 @@ export default function SocialShare({ title }: Props) {
       <span>
         ¡Difunde nuestra <b className="text-primary">HISTORIA</b>!
       </span>
-      <div className="mt-4 flex gap-2">
+      <div className="mt-4 mb-12 flex gap-2">
         <FacebookShareButton title={title} url={currentUrl}>
           <FacebookIcon size={32} round={true} />
         </FacebookShareButton>
