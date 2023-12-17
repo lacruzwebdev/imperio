@@ -40,7 +40,13 @@ export default function Card({
           />
         )}
         {!img && (
-          <Image className="rounded-t-lg" src="/imperio.png" alt="Imperio" />
+          <Image
+            className="rounded-t-lg"
+            src="/imperio.png"
+            width={750}
+            height={443}
+            alt="Imperio"
+          />
         )}
         <div
           className={`p-5 inline-flex flex-col ${

@@ -13,5 +13,5 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
-  return <main>{children}</main>
+  return <main className="min-h-[70svh]">{children}</main>
 }

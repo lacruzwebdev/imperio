@@ -49,7 +49,7 @@ export default async function Evento({ params }: Props) {
           {`${day[0].toUpperCase()}${day.substring(1)}`}
         </p>
       </div>
-      {img && (
+      {img.length > 0 && (
         <div className="relative">
           <img
             className="rounded-t-lg mx-auto w-full"
