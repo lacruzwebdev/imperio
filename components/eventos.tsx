@@ -14,8 +14,6 @@ export default function Eventos({ data, date, categorias }: Props) {
   const [activeEvents, setActiveEvents] = useState(data)
   const [activeCategory, setActiveCategory] = useState('Todas')
 
-  function onCategoryChange() {}
-
   return (
     <section className="max-w-screen-xl mx-auto p-8">
       <h1 className="acc-h">Imperio Español</h1>
