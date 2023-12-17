@@ -27,6 +27,8 @@ export function Categorias({ opciones, active }: Props) {
         <Button variant="default">{active.activeCategory}</Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-56">
+        <DropdownMenuLabel>Categorías</DropdownMenuLabel>
+        <DropdownMenuSeparator />
         <DropdownMenuRadioGroup
           value={active.activeCategory}
           onValueChange={active.setActiveCategory}

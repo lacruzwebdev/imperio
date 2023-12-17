@@ -17,7 +17,7 @@ export default function Eventos({ data, date, categorias }: Props) {
   return (
     <section className="max-w-screen-xl mx-auto p-8">
       <h1 className="acc-h">Imperio Español</h1>
-      <div className="flex justify-between">
+      <div className="flex justify-between flex-col md:flex-row mb-8 md:mb-0">
         <div>
           <p className="text-3xl mb-2">Tal día como hoy...</p>
           <p className="text-primary text-xl mb-4">{date}</p>
