@@ -1,5 +1,6 @@
 import Carousel from '@/components/ui/carousel'
 import EventoMap from '@/components/ui/evento-map'
+import SocialShare from '@/components/ui/social-share'
 import { fetchEvent } from '@/lib/api'
 import { getStrapiURL } from '@/lib/api-helpers'
 import { Metadata } from 'next'
@@ -102,6 +103,8 @@ export default async function Evento({ params }: Props) {
           )}
         </p>
       </div>
+      <SocialShare title={`Imperio Español - ${event.Titulo}`} />
+
       {event.Imagen.length > 1 && <Carousel slides={event.Imagen} />}
       {event.Latitud !== 0 && event.Longitud !== 0 && (
         <EventoMap lat={event.Latitud} long={event.Longitud} zoom={7} />
