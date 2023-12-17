@@ -6,9 +6,9 @@ import Grid from './ui/grid'
 import { hasCategory } from '@/lib/helpers'
 
 type Props = {
-  data: any
-  date: any
-  categorias: any
+  data: Evento[]
+  date: string
+  categorias: string[]
 }
 export default function Eventos({ data, date, categorias }: Props) {
   const [activeEvents, setActiveEvents] = useState(data)

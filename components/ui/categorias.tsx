@@ -15,8 +15,8 @@ import { Button } from './button'
 type Props = {
   opciones: string[]
   active: {
-    activeCategory: any
-    setActiveCategory: any
+    activeCategory: string
+    setActiveCategory: React.Dispatch<React.SetStateAction<string>>
   }
 }
 

@@ -92,12 +92,14 @@ export default async function Evento({ params }: Props) {
       <div className="mt-2 mb-12">
         <p className="text-primary">
           Categorías:{' '}
-          {event.Categorias.map((cat: any, index: number, arr: any[]) => (
-            <span key={cat.id}>
-              {cat.Nombre}
-              {index < arr.length - 1 ? ', ' : ''}
-            </span>
-          ))}
+          {event.Categorias.map(
+            (cat: Categoria, index: number, arr: string[]) => (
+              <span key={cat.id}>
+                {cat.Nombre}
+                {index < arr.length - 1 ? ', ' : ''}
+              </span>
+            )
+          )}
         </p>
       </div>
       {event.Imagen.length > 1 && <Carousel slides={event.Imagen} />}

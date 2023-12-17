@@ -11,7 +11,7 @@ import Thumbails from 'yet-another-react-lightbox/plugins/thumbnails'
 import Captions from 'yet-another-react-lightbox/plugins/captions'
 
 type Props = {
-  slides: any
+  slides: Image[]
 }
 
 export default function Carousel({ slides }: Props) {
@@ -24,7 +24,7 @@ export default function Carousel({ slides }: Props) {
   const updateIndex = ({ index: current }: { index: number }) =>
     setIndex(current)
 
-  const slidesArr = slides.map((image: any) => ({
+  const slidesArr = slides.map((image: Image) => ({
     src: getStrapiURL(image.formats.large.url),
     width: image.formats.large.width,
     height: image.formats.large.height,

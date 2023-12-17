@@ -1,5 +1,5 @@
 export function hasCategory(event: Evento, category: string) {
-   return event.Categorias.some((item:any) => item.Nombre === category)
+   return event.Categorias.some((item:Categoria) => item.Nombre === category)
 }
 
 export function createSlug(title: string): string {

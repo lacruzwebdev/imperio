@@ -9,11 +9,12 @@ export default async function Home({}: Props) {
     day: 'numeric'
   } as const
   const date = new Intl.DateTimeFormat('es-ES', options).format(new Date())
-  let categorias: any[] = ['Todas']
-  data.forEach((item: any) => {
-    item.Categorias.forEach((cat: any) => {
-      categorias.push(cat.Nombre)
-    })
-  })
+  let categorias: string[] = ['Todas']
+  let categoriasSet = data.reduce((set: Set<string>, item: Evento) => {
+    item.Categorias.forEach(({ Nombre }: Categoria) => set.add(Nombre))
+    return set
+  }, new Set(categorias))
+
+  categorias = Array.from(categoriasSet)
   return <Eventos data={data} date={date} categorias={categorias} />
 }

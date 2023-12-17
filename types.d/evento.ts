@@ -1,14 +1,30 @@
 type Evento = {
-   id: number,
-   Fecha: string,
-   Titulo: string,
-   Descripcion: string,
-   Imagen: StrapiImage[],
+   id: number
+   Fecha: string
+   Titulo: string
+   Descripcion: string
+   Imagen: StrapiImage[]
    Relevancia: 0 | 1
    Categorias: Categoria[]
 }
 
 type Categoria = {
-   id: number,
+   id: number
    Nombre: string
+}
+
+type Image = {
+   id: number
+   alternativeText: string
+   width: number
+   height: number
+   formats: ImageFormat
+}
+
+type ImageFormat = {
+   [name:string]: {
+      url: string
+      width: number
+      height: number
+   }
 }
