@@ -1,9 +1,11 @@
 import Carousel from '@/components/ui/carousel'
 import EventoMap from '@/components/ui/evento-map'
 import SocialShare from '@/components/ui/social-share'
+import TTS from '@/components/ui/tts'
 import { fetchEvent } from '@/lib/api'
 import { getStrapiURL } from '@/lib/api-helpers'
 import { Metadata } from 'next'
+import Markdown from 'react-markdown'
 
 type Props = {
   params: {
@@ -67,11 +69,7 @@ export default async function Evento({ params }: Props) {
       <h1 className="mt-8 mb-4 text-2xl font-bold tracking-tight">
         {event.Titulo}
       </h1>
-      <p
-        dangerouslySetInnerHTML={{
-          __html: event.Descripcion.replace(/\n/g, '<br />')
-        }}
-      ></p>
+      <Markdown className="space-y-6 mb-10">{event.Descripcion}</Markdown>
       <div className="mt-2 mb-2 flex items-center gap-2">
         <p>
           Autor:{' '}
@@ -113,6 +111,7 @@ export default async function Evento({ params }: Props) {
           )}
         </p>
       </div>
+      <TTS className="flex text-primary mb-8" text={event.Descripcion} />
       <SocialShare title={`Imperio Español - ${event.Titulo}`} />
 
       {event.Imagen.length > 1 && <Carousel slides={event.Imagen} />}
