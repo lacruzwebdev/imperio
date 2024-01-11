@@ -31,7 +31,7 @@ export default function SkeletonCard({}: Props) {
           <div className="h-2 bg-gray-200 rounded-full dark:bg-gray-700 max-w-[330px] mb-2.5"></div>
           <span className="sr-only">Loading...</span>
         </div>
-        <a
+        {/* <a
           href="#"
           className="inline-flex items-center px-3 py-2 text-sm font-medium text-center rounded-lg bg-primary text-primary-foreground"
         >
@@ -51,7 +51,7 @@ export default function SkeletonCard({}: Props) {
               d="M1 5h12m0 0L9 1m4 4L9 9"
             />
           </svg>
-        </a>
+        </a> */}
       </div>
     </div>
   )

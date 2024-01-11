@@ -61,31 +61,49 @@ export default function MobileMenu() {
       <nav
         id="mobile-nav"
         ref={mobileNav}
-        className="absolute top-full z-20 left-0 w-full px-4 sm:px-6 overflow-hidden transition-all duration-300 ease-in-out"
+        className="absolute top-full z-20 left-0 w-full px-4 bg-primary sm:px-6 overflow-hidden transition-all duration-300 ease-in-out"
         style={
           mobileNavOpen
             ? { maxHeight: mobileNav.current?.scrollHeight, opacity: 1 }
             : { maxHeight: 0, opacity: 0.8 }
         }
       >
-        <ul className="bg-white px-4 py-2">
+        <ul className="bg-primary text-white px-4 py-2 text-lg">
+          <li>
+            <Link
+              href="/hitos"
+              className="flex hover:text-primary py-2"
+              onClick={() => setMobileNavOpen(false)}
+            >
+              Hitos
+            </Link>
+          </li>
+          <li>
+            <Link
+              href="/lecturas"
+              className="flex hover:text-primary py-2"
+              onClick={() => setMobileNavOpen(false)}
+            >
+              Lecturas
+            </Link>
+          </li>
           <li>
             <a
               href="https://tienda.imperio-espanol.com/"
-              className="flex text-foreground hover:text-primary py-2"
+              className="flex hover:text-primary py-2"
               onClick={() => setMobileNavOpen(false)}
             >
               Tienda
             </a>
           </li>
           <li>
-            <Link
+            <a
               href="https://tienda.imperio-espanol.com/contacto/"
-              className="flex text-foreground hover:text-primary py-2"
+              className="flex hover:text-primary py-2"
               onClick={() => setMobileNavOpen(false)}
             >
               Contacto
-            </Link>
+            </a>
           </li>
         </ul>
       </nav>

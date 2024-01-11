@@ -1,6 +1,5 @@
 import Grid from '@/components/ui/grid'
 import SkeletonCard from '@/components/ui/skeleton-card'
-import Spinner from '@/components/ui/spinner'
 
 type Props = {}
 export default function Loading({}: Props) {
@@ -13,8 +12,8 @@ export default function Loading({}: Props) {
   return (
     <section className="max-w-screen-xl mx-auto p-8">
       {/* <Spinner /> */}
-      <h1 className="text-3xl mb-2">Tal día como hoy...</h1>
-      <h2 className="text-primary text-xl mb-4">{date}</h2>
+      <p className="text-3xl mb-2">Tal día como hoy...</p>
+      <p className="text-primary text-xl mb-4">{date}</p>
       <Grid>
         {Array.from(Array(numOfCards).keys()).map((item) => (
           <SkeletonCard key={crypto.randomUUID()} />

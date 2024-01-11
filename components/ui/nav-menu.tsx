@@ -14,19 +14,35 @@ export default function NavMenu({}: Props) {
           <ul className="flex grow justify-end flex-wrap items-center">
             <li>
               <Link
-                href="https://tienda.imperio-espanol.com/"
+                href="/hitos"
                 className="px-4 py-2 flex items-center transition duration-150 ease-in-out"
               >
-                Tienda
+                Hitos
               </Link>
             </li>
             <li>
               <Link
+                href="/lecturas"
+                className="px-4 py-2 flex items-center transition duration-150 ease-in-out"
+              >
+                Lecturas
+              </Link>
+            </li>
+            <li>
+              <a
+                href="https://tienda.imperio-espanol.com/"
+                className="px-4 py-2 flex items-center transition duration-150 ease-in-out"
+              >
+                Tienda
+              </a>
+            </li>
+            <li>
+              <a
                 href="https://tienda.imperio-espanol.com/contacto"
                 className="px-4 py-2 flex items-center transition duration-150 ease-in-out"
               >
                 Contacto
-              </Link>
+              </a>
             </li>
           </ul>
         </nav>
