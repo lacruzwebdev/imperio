@@ -1,5 +1,6 @@
 import Eventos from '@/components/eventos'
 import { fetchTodayEvents } from '@/lib/api'
+import { getCategories } from '@/lib/helpers'
 
 type Props = {}
 export default async function Home({}: Props) {
@@ -9,12 +10,8 @@ export default async function Home({}: Props) {
     day: 'numeric'
   } as const
   const date = new Intl.DateTimeFormat('es-ES', options).format(new Date())
-  let categorias: string[] = ['Todas']
-  let categoriasSet = data.reduce((set: Set<string>, item: Evento) => {
-    item.Categorias.forEach(({ Nombre }: Categoria) => set.add(Nombre))
-    return set
-  }, new Set(categorias))
+  
+  const categorias = getCategories(data);
 
-  categorias = Array.from(categoriasSet)
-  return <Eventos data={data} date={date} categorias={categorias} />
+  return <Eventos type={'eventos'} data={data} date={date} categorias={categorias} />
 }
