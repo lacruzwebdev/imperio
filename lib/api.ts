@@ -41,8 +41,28 @@ export async function fetchTodayEvents() {
   return data
 }
 
+export async function fetchHitos() {
+  const data = await fetchAPI(`hitos`);
+  return data;
+}
+
+export async function fetchLecturas() {
+  const data = await fetchAPI(`libros`);
+  return data;
+}
+
 export async function fetchEvent(id: number) {
   const data = await fetchAPI(`tal-dias/${id}`);
+  return data;
+}
+
+export async function fetchHito(id: Number) {
+  const data = await fetchAPI(`hitos/${id}`)
+  return data;
+}
+
+export async function fetchLectura(id: Number) {
+  const data = await fetchAPI(`libros/${id}`)
   return data;
 }
 

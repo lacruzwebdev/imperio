@@ -28,3 +28,12 @@ type ImageFormat = {
       height: number
    }
 }
+
+type Lectura = {
+   id: number
+   Titulo: string
+   Descripcion: string
+   Autor: string
+   Imagen: StrapiImage[]
+   Categorias: Categoria[]
+}

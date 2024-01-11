@@ -1,17 +1,15 @@
 'use client'
 import { useState } from 'react'
-import Card from './ui/card'
 import { Categorias } from './ui/categorias'
 import Grid from './ui/grid'
 import { hasCategory } from '@/lib/helpers'
+import LibroCard from './ui/libro-card'
 
 type Props = {
-  type: 'eventos' | 'hitos'
-  data: Evento[]
-  date: string
+  data: Lectura[]
   categorias: string[]
 }
-export default function Eventos({ type, data, date, categorias }: Props) {
+export default function Lecturas({ data, categorias }: Props) {
   const [activeEvents, setActiveEvents] = useState(data)
   const [activeCategory, setActiveCategory] = useState('Todas')
 
@@ -19,42 +17,32 @@ export default function Eventos({ type, data, date, categorias }: Props) {
     <section className="max-w-screen-xl mx-auto p-8">
       <h1 className="acc-h">Imperio Español</h1>
       <div className="flex justify-between flex-col md:flex-row mb-8 md:mb-0">
-          {type === 'eventos' ?
         <div>
-          <p className="text-3xl mb-2">Tal día como hoy...</p>
-          <p className="text-primary text-xl mb-4">{date}</p>
+          <p className="text-3xl mb-4">Lecturas</p>
         </div>
-          :
-          <div>
-          <p className="text-3xl mb-4">Grandes hitos</p>
-        </div>
-          }
         <Categorias
           opciones={categorias}
           active={{ activeCategory, setActiveCategory }}
         />
       </div>
-      <Grid>
-        {activeEvents.map((evento: Evento, index: number) => {
+      <div className="grid grid-cols-auto-fit-200 gap-8">
+        {activeEvents.map((evento: Lectura, index: number) => {
           if (
             hasCategory(evento, activeCategory) ||
             activeCategory === 'Todas'
           ) {
             return (
-              <Card
-                type={type}
+              <LibroCard
                 key={evento.id}
                 id={evento.id}
-                fecha={evento.Fecha}
                 title={evento.Titulo}
-                description={evento.Descripcion}
+                autor={evento.Autor}
                 img={evento.Imagen[0]}
-                relevancia={evento.Relevancia}
               />
             )
           }
         })}
-      </Grid>
+      </div>
     </section>
   )
 }
