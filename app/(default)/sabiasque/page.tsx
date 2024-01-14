@@ -18,7 +18,7 @@ export default async function Frases({}: Props) {
     <section className="max-w-screen-xl mx-auto p-8 min-h-[70vh] flex items-center">
       <div className="text-center w-full flex flex-col">
       <h1 className="text-2xl font-bold">Sabías que...</h1>
-        <span className='font-bold text-5xl leading-tight mb-8'>{data.Titulo}</span>
+        <span className='font-bold text-3xl lg:text-5xl leading-tight mb-8'>{data.Titulo}</span>
         <span className='font-bold text-lg mb-8'>{data.Descripcion}</span>
         {data.Autor.Nombre && 
         <div className="flex gap-2 mx-auto mb-8">
