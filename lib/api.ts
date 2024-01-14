@@ -66,6 +66,16 @@ export async function fetchLectura(id: Number) {
   return data;
 }
 
+export async function fetchFrase() {
+  const data = await fetchAPI('fraserandom');
+  return data;
+}
+
+export async function fetchSabias() {
+  const data = await fetchAPI('sabiasrandom');
+  return data[0];
+}
+
 function delay(ms: number) {
   return new Promise((resolve, reject) => {
     setTimeout(() => {resolve('ok')}, ms)

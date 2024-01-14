@@ -29,6 +29,14 @@ type ImageFormat = {
    }
 }
 
+type Frase = {
+   id: number,
+   Frase: string,
+   Autor: string,
+   Obra: string,
+   Fecha: string
+}
+
 type Lectura = {
    id: number
    Titulo: string

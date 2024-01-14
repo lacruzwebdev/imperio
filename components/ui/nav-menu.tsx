@@ -14,6 +14,14 @@ export default function NavMenu({}: Props) {
           <ul className="flex grow justify-end flex-wrap items-center">
             <li>
               <Link
+                href="/"
+                className="px-4 py-2 flex items-center transition duration-150 ease-in-out"
+              >
+                Eventos
+              </Link>
+            </li>
+            <li>
+              <Link
                 href="/hitos"
                 className="px-4 py-2 flex items-center transition duration-150 ease-in-out"
               >
@@ -26,6 +34,22 @@ export default function NavMenu({}: Props) {
                 className="px-4 py-2 flex items-center transition duration-150 ease-in-out"
               >
                 Lecturas
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/frases"
+                className="px-4 py-2 flex items-center transition duration-150 ease-in-out"
+              >
+                Frases
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/sabiasque"
+                className="px-4 py-2 flex items-center transition duration-150 ease-in-out"
+              >
+                ¿Sabías que...?
               </Link>
             </li>
             <li>
