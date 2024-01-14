@@ -12,7 +12,7 @@ export default function Loading({}: Props) {
   return (
     <section className="max-w-screen-xl mx-auto p-8">
       {/* <Spinner /> */}
-      <p className="text-3xl mb-2">Tal día como hoy...</p>
+      <h2 className="text-3xl mb-2">Tal día como hoy...</h2>
       <p className="text-primary text-xl mb-4">{date}</p>
       <Grid>
         {Array.from(Array(numOfCards).keys()).map((item) => (

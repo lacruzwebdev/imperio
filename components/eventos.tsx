@@ -21,12 +21,12 @@ export default function Eventos({ type, data, date, categorias }: Props) {
       <div className="flex justify-between flex-col md:flex-row mb-8 md:mb-0">
           {type === 'eventos' ?
         <div>
-          <p className="text-3xl mb-2">Tal día como hoy...</p>
+          <h2 className="text-3xl mb-2">Tal día como hoy...</h2>
           <p className="text-primary text-xl mb-4">{date}</p>
         </div>
           :
           <div>
-          <p className="text-3xl mb-4">Grandes hitos</p>
+          <h2 className="text-3xl mb-4">Grandes hitos</h2>
         </div>
           }
         <Categorias

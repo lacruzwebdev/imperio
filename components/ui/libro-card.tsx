@@ -46,7 +46,7 @@ export default function LibroCard({
         <div
           className='p-5 inline-flex flex-col w-full text-center'
         >
-          <h2 className="mb-2 text-2xl font-bold tracking-tight">{title}</h2>
+          <h3 className="mb-2 text-2xl font-bold tracking-tight">{title}</h3>
           <p className="mb-3 font-normal">
             {autor}
           </p>

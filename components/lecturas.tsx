@@ -18,7 +18,7 @@ export default function Lecturas({ data, categorias }: Props) {
       <h1 className="acc-h">Imperio Español</h1>
       <div className="flex justify-between flex-col md:flex-row mb-8 md:mb-0">
         <div>
-          <p className="text-3xl mb-4">Lecturas</p>
+          <h2 className="text-3xl mb-4">Lecturas</h2>
         </div>
         <Categorias
           opciones={categorias}

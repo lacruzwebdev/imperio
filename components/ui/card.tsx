@@ -65,7 +65,7 @@ export default function Card({
             <p className={relevancia > 0 ? 'text-white' : 'text-primary'}>
               {type === 'eventos' && fecha && fecha.substring(0, 4)}
             </p>
-            <h2 className="mb-2 text-2xl font-bold tracking-tight">{title}</h2>
+            <h3 className="mb-2 text-2xl font-bold tracking-tight">{title}</h3>
             <p className="mb-3 font-normal">
               {description.slice(0, descriptionMaxLength) + '...'}
             </p>
