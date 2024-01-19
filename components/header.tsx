@@ -11,7 +11,7 @@ export default function Header() {
 
   return (
     <header className="w-full z-30 grid items-center">
-      <div className="bg-primary text-primary-foreground relative">
+      <div className="bg-primary-alt text-primary-foreground relative">
         <div className="max-w-screen-xl mx-auto p-1 md:px-0">
           <NavMenu />
         </div>

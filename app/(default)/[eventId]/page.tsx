@@ -5,6 +5,7 @@ import TTS from '@/components/ui/tts'
 import { fetchEvent } from '@/lib/api'
 import { getStrapiURL } from '@/lib/api-helpers'
 import { Metadata } from 'next'
+import Image from 'next/image'
 import Markdown from 'react-markdown'
 
 type Props = {
@@ -54,12 +55,13 @@ export default async function Evento({ params }: Props) {
       </div>
       {img.length > 0 && (
         <div className="relative">
-          <img
+          <Image
             className="rounded-t-lg mx-auto w-full"
             width={img[0].formats.large.width}
             height={img[0].formats.large.height}
             src={getStrapiURL(img[0].formats.large.url)}
             alt={img[0].alternativeText}
+            priority
           />
           <span className="absolute bottom-8 left-8 text-white font-bold text-xl shadow-xl">
             {img[0].alternativeText}
@@ -73,13 +75,13 @@ export default async function Evento({ params }: Props) {
       <div className="mt-2 mb-2 flex items-center gap-2">
         <p>
           Autor:{' '}
-          <a className="hover:text-primary font-bold" href={event.Autores.Web}>
+          <a className="hover:text-primary font-bold" aria-label={event.Autores.Nombre} href={event.Autores.Web}>
             {event.Autores.Nombre}
           </a>
         </p>
-        <a href={`https://twitter.com/${event.Autores.Twitter}`}>
+        <a aria-label="X del autor" href={`https://twitter.com/${event.Autores.Twitter}`}>
           <svg
-            className="hover:fill-primary"
+            className="hover:fill-primary w-8 h-8"
             xmlns="http://www.w3.org/2000/svg"
             height="1.2rem"
             viewBox="0 0 512 512"
@@ -87,9 +89,9 @@ export default async function Evento({ params }: Props) {
             <path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z" />
           </svg>
         </a>
-        <a href={event.Autores.Web}>
+        <a aria-label="Web del autor" href={event.Autores.Web}>
           <svg
-            className="hover:fill-primary"
+            className="hover:fill-primary w-8 h-8"
             xmlns="http://www.w3.org/2000/svg"
             height="1.2rem"
             viewBox="0 0 512 512"

@@ -9,7 +9,7 @@ export default function SocialLinks({}: Props) {
           aria-label="Facebook"
         >
           <svg
-            className="w-8 h-8 fill-current"
+            className="w-10 h-10 lg:w-8 lg:h-8 fill-current"
             viewBox="0 0 32 32"
             xmlns="http://www.w3.org/2000/svg"
           >
@@ -24,7 +24,7 @@ export default function SocialLinks({}: Props) {
           aria-label="Instagram"
         >
           <svg
-            className="w-8 h-8 fill-current"
+            className="w-10 h-10 lg:w-8 lg:h-8 fill-current"
             viewBox="0 0 32 32"
             xmlns="http://www.w3.org/2000/svg"
           >
@@ -41,7 +41,7 @@ export default function SocialLinks({}: Props) {
           aria-label="Twitter"
         >
           <svg
-            className="w-8 h-8 fill-current"
+            className="w-10 h-10 lg:w-8 lg:h-8 fill-current"
             viewBox="0 0 32 32"
             xmlns="http://www.w3.org/2000/svg"
           >
@@ -56,7 +56,7 @@ export default function SocialLinks({}: Props) {
           aria-label="Mail"
         >
           <svg
-            className="w-8 h-8 fill-current"
+            className="w-10 h-10 lg:w-8 lg:h-8 fill-current"
             viewBox="-256 0 1024 512"
             xmlns="http://www.w3.org/2000/svg"
           >
@@ -71,7 +71,7 @@ export default function SocialLinks({}: Props) {
           aria-label="Mail"
         >
           <svg
-            className="w-8 h-8 fill-current"
+            className="w-10 h-10 lg:w-8 lg:h-8 fill-current"
             viewBox="-256 0 1024 512"
             xmlns="http://www.w3.org/2000/svg"
           >

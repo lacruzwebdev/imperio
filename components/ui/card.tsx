@@ -1,6 +1,4 @@
 import { getStrapiURL } from '@/lib/api-helpers'
-import CardTextSkeleton from './card-text-skeleton'
-import { Suspense } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { createSlug } from '@/lib/helpers'
@@ -14,6 +12,7 @@ type Props = {
   title: string
   description: string
   relevancia: 0 | 1
+  priority: boolean
 }
 export default function Card({
   type,
@@ -22,7 +21,8 @@ export default function Card({
   fecha,
   title,
   description,
-  relevancia
+  relevancia,
+  priority = false
 }: Props) {
   const descriptionMaxLength = 200
   let url = `${id}-${createSlug(title)}`;
@@ -45,6 +45,7 @@ export default function Card({
             height={img.formats.medium.height}
             src={getStrapiURL(img.formats.medium.url)}
             alt={img.alternativeText}
+            priority={priority}
           />
         )}
         {!img && (

@@ -50,6 +50,7 @@ export default function Eventos({ type, data, date, categorias }: Props) {
                 description={evento.Descripcion}
                 img={evento.Imagen[0]}
                 relevancia={evento.Relevancia}
+                priority={index < 2}
               />
             )
           }

@@ -24,13 +24,13 @@ export default async function Frases({}: Props) {
         <div className="flex gap-2 mx-auto mb-8">
          Autor:{' '}
          {data.Autor.Web ?
-         <a className="font-bold hover:text-primary" href={data.Autor.Web}>{data.Autor.Nombre}</a>:
+         <a aria-label={data.Autor.Nombre} className="font-bold hover:text-primary" href={data.Autor.Web}>{data.Autor.Nombre}</a>:
          <p className="font-bold">{data.Autor.Nombre}</p>
          }
          {data.Autor.Twitter &&
-         <a href={`https://twitter.com/${data.Autor.Twitter}`}>
+         <a aria-label="X del autor" href={`https://twitter.com/${data.Autor.Twitter}`}>
           <svg
-            className="hover:fill-primary"
+            className="hover:fill-primary h-6 w-6"
             xmlns="http://www.w3.org/2000/svg"
             height="1.2rem"
             viewBox="0 0 512 512"
@@ -40,9 +40,9 @@ export default async function Frases({}: Props) {
         </a>
          }
          {data.Autor.Web &&
-        <a href={data.Autor.Web}>
+        <a aria-label="Web del autor" href={data.Autor.Web}>
           <svg
-            className="hover:fill-primary"
+            className="hover:fill-primary w-6 h-6"
             xmlns="http://www.w3.org/2000/svg"
             height="1.2rem"
             viewBox="0 0 512 512"

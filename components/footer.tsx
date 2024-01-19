@@ -21,10 +21,10 @@ export default function Footer({}: Props) {
           <div className="flex flex-col">
             <h2 className="text-xl font-semibold mr-2 mb-4">Enlaces</h2>
             <ul className="list-none">
-              <li>
+              <li className="py-2">
                 <a href="https://tienda.imperio-espanol.com/blog/">Blog</a>
               </li>
-              <li>
+              <li className="py-2">
                 <a href="https://tienda.imperio-espanol.com/contacto/">
                   Contacto
                 </a>

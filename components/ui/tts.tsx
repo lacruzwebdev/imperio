@@ -28,7 +28,7 @@ export default function TTS({ text, ...rest }: Props) {
   }
 
   return (
-    <button onClick={speak} {...rest}>
+    <button aria-label="Texto a Audio" onClick={speak} {...rest}>
       {isPlaying || !isClicked ?
         <svg
         xmlns="http://www.w3.org/2000/svg"
