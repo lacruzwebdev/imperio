@@ -4,12 +4,13 @@ import { getStrapiURL } from "./api-helpers";
 export async function fetchAPI(
   path: string,
   urlParamsObject = {},
-  options = {}
+  options = {},
+  revalidate = false
 ) {
   try {
     // Merge default and user options
     const mergedOptions = {
-      next: { revalidate: 0 },
+      next: revalidate ? { revalidate: 0 } : {},
       headers: {
         "Content-Type": "application/json",
       },
