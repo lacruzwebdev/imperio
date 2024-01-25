@@ -4,6 +4,7 @@ import Card from './ui/card'
 import { Categorias } from './ui/categorias'
 import Grid from './ui/grid'
 import { hasCategory } from '@/lib/helpers'
+import Link from 'next/link'
 
 type Props = {
   type: 'eventos' | 'hitos'
@@ -21,12 +22,16 @@ export default function Eventos({ type, data, date, categorias }: Props) {
       <div className="flex justify-between flex-col md:flex-row mb-8 md:mb-0">
           {type === 'eventos' ?
         <div>
-          <h2 className="text-3xl mb-2">Tal día como hoy...</h2>
+          <Link href="/">
+            <h2 className="text-3xl mb-2">Tal día como hoy...</h2>
+          </Link>
           <p className="text-primary text-xl mb-4">{date}</p>
         </div>
           :
           <div>
-          <h2 className="text-3xl mb-4">Grandes hitos</h2>
+          <Link href="/hitos">
+            <h2 className="text-3xl mb-4">Grandes hitos</h2>
+          </Link>
         </div>
           }
         <Categorias
@@ -34,14 +39,15 @@ export default function Eventos({ type, data, date, categorias }: Props) {
           active={{ activeCategory, setActiveCategory }}
         />
       </div>
+      {Array.isArray(data) && data.length > 0 ?
       <Grid>
         {activeEvents.map((evento: Evento, index: number) => {
           if (
             hasCategory(evento, activeCategory) ||
             activeCategory === 'Todas'
-          ) {
-            return (
-              <Card
+            ) {
+              return (
+                <Card
                 type={type}
                 key={evento.id}
                 id={evento.id}
@@ -51,11 +57,14 @@ export default function Eventos({ type, data, date, categorias }: Props) {
                 img={evento.Imagen[0]}
                 relevancia={evento.Relevancia}
                 priority={index < 2}
-              />
-            )
-          }
-        })}
-      </Grid>
+                />
+                )
+              }
+            })}
+      </Grid> :
+      <p className="text-xl">No hay eventos ¡Vuelve mañana para descubrir más!</p>
+  }
     </section>
-  )
-}
+    )
+  }
+  

@@ -6,6 +6,7 @@ import { fetchHito } from '@/lib/api'
 import { getStrapiURL } from '@/lib/api-helpers'
 import { Metadata } from 'next'
 import Image from 'next/image'
+import Link from 'next/link'
 import Markdown from 'react-markdown'
 
 type Props = {
@@ -29,6 +30,9 @@ export default async function Hito({ params }: Props) {
 
   return (
     <section className="max-w-screen-xl mx-auto p-8">
+      <Link href="/hitos">
+        <h2 className="text-3xl mb-2">Grandes hitos</h2>
+      </Link>
       {img.length > 0 && img[0].formats.large ? (
         <div className="relative">
           <Image

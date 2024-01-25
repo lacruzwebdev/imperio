@@ -4,6 +4,7 @@ import { Categorias } from './ui/categorias'
 import Grid from './ui/grid'
 import { hasCategory } from '@/lib/helpers'
 import LibroCard from './ui/libro-card'
+import Link from 'next/link'
 
 type Props = {
   data: Lectura[]
@@ -18,7 +19,9 @@ export default function Lecturas({ data, categorias }: Props) {
       <h1 className="acc-h">Imperio Español</h1>
       <div className="flex justify-between flex-col md:flex-row mb-8 md:mb-0">
         <div>
+          <Link href="/lecturas">
           <h2 className="text-3xl mb-4">Lecturas</h2>
+          </Link>
         </div>
         <Categorias
           opciones={categorias}

@@ -1,11 +1,10 @@
 import { Button } from '@/components/ui/button'
-import Carousel from '@/components/ui/carousel'
-import EventoMap from '@/components/ui/evento-map'
 import SocialShare from '@/components/ui/social-share'
 import TTS from '@/components/ui/tts'
 import { fetchLectura } from '@/lib/api'
 import { getStrapiURL } from '@/lib/api-helpers'
 import { Metadata } from 'next'
+import Link from 'next/link'
 import Markdown from 'react-markdown'
 
 type Props = {
@@ -29,6 +28,9 @@ export default async function Lectura({ params }: Props) {
 
   return (
     <section className="max-w-screen-xl mx-auto p-8">
+      <Link href="/lecturas">
+        <h2 className="text-3xl mb-2">Lecturas</h2>
+      </Link>
       <div className="grid grid-cols-1 lg:grid-cols-2">
 
       {img.length > 0 && img[0].formats.large ? (

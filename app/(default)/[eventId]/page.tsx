@@ -6,6 +6,7 @@ import { fetchEvent } from '@/lib/api'
 import { getStrapiURL } from '@/lib/api-helpers'
 import { Metadata } from 'next'
 import Image from 'next/image'
+import Link from 'next/link'
 import Markdown from 'react-markdown'
 
 type Props = {
@@ -44,6 +45,9 @@ export default async function Evento({ params }: Props) {
   )
   return (
     <section className="max-w-screen-xl mx-auto p-8">
+      <Link href="/">
+        <h2 className="text-3xl mb-2">Tal día como hoy...</h2>
+      </Link>
       <div className="flex w-full justify-between">
         <p className="text-center mb-2 text-xl text-primary font-bold tracking-tight">
           {year}
@@ -63,7 +67,7 @@ export default async function Evento({ params }: Props) {
             alt={img[0].alternativeText}
             priority
           />
-          <span className="absolute bottom-8 left-8 text-white font-bold text-xl shadow-xl">
+          <span className="absolute bottom-2 left-3 md:bottom-8 md:left-8 text-white font-bold text-sm md:text-xl shadow-xl">
             {img[0].alternativeText}
           </span>
         </div>
