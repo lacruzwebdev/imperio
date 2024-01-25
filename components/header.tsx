@@ -4,11 +4,6 @@ import NavMenu from './ui/nav-menu'
 import { usePathname } from 'next/navigation'
 
 export default function Header() {
-    let pathname = usePathname().split('/')[1]
-    if (pathname !== 'hitos' && pathname !== 'lecturas') {
-      pathname = '/'
-    }
-
   return (
     <header className="w-full z-30 grid items-center">
       <div className="bg-primary-alt text-primary-foreground relative">
@@ -24,7 +19,7 @@ export default function Header() {
           >
             <ul className="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white"></ul>
           </div>
-          <Link href={`/${pathname}`} className="flex items-center md:w-1/3">
+          <Link href="/" className="flex items-center md:w-1/3">
             <img
               width={1020}
               height={75}
