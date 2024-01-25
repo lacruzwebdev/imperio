@@ -36,7 +36,7 @@ export default async function Lectura({ params }: Props) {
       {img.length > 0 && img[0].formats.large ? (
          <div className="relative">
           <img
-            className="rounded-t-lg mx-auto w-full max-h-[500px] object-contain"
+            className="rounded-t-lg mx-auto w-full max-h-[500px] object-contain sticky top-0"
             width={img[0].formats.large.width}
             height={img[0].formats.large.height}
             src={getStrapiURL(img[0].formats.large.url)}
@@ -49,7 +49,7 @@ export default async function Lectura({ params }: Props) {
       ) : (
          <div className="relative">
           <img
-            className="rounded-t-lg mx-auto w-full max-h-[500px] object-contain"
+            className="rounded-t-lg mx-auto w-full max-h-[500px] object-contain sticky top-0"
             width={img[0].formats.medium.width}
             height={img[0].formats.medium.height}
             src={getStrapiURL(img[0].formats.medium.url)}
