@@ -65,7 +65,7 @@ export default async function Evento({ params }: Props) {
             height={img[0].formats.large.height}
             src={getStrapiURL(img[0].formats.large.url)}
             alt={img[0].alternativeText}
-            priority
+            priority={true}
           />
           <span className="absolute bottom-2 left-3 md:bottom-8 md:left-8 text-white font-bold text-sm md:text-xl shadow-xl">
             {img[0].alternativeText}
