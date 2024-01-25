@@ -2,17 +2,18 @@
 import { useRouter } from 'next/navigation';
 import { Button } from './button';
 
-type Props = {
+interface Props extends React.HTMLAttributes<HTMLElement> {
    text: string
 }
-const RefreshButton = ({text}: Props) => {
+
+const RefreshButton = ({text, ...rest}: Props) => {
   const router = useRouter();
   const handleRefresh = () => {
     router.refresh();
   };
   return (
-    <div>
-      <Button onClick={handleRefresh}>{text}</Button>
+    <div {...rest}>
+      <Button onClick={handleRefresh} {...rest}>{text}</Button>
     </div>
   );
 };
