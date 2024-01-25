@@ -26,7 +26,7 @@ export function Categorias({ opciones, active }: Props) {
       <DropdownMenuTrigger asChild>
         <Button variant="default">{active.activeCategory}</Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="w-56 max-h-96 overflow-y-scroll">
+      <DropdownMenuContent className="w-56 max-h-96 overflow-y-scroll dropdown">
         <DropdownMenuLabel>Categorías</DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuRadioGroup

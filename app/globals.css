@@ -104,3 +104,21 @@
   top: unset !important;
   bottom: 0;
 }
+
+@media (width < 991px) {
+    .yarl__slide_title {
+      font-size: 14px!important;
+    }
+}
+
+.dropdown {
+  scrollbar-color: hsl(0, 0%, 84%) white;
+  scrollbar-width: thin;
+}
+.dropdown::-webkit-scrollbar {
+  width: 5px;
+}
+
+.dropdown::-webkit-scrollbar-thumb {
+  background: hsl(0, 0%, 84%);
+}
