@@ -17,7 +17,7 @@ export default function NavMenu({}: Props) {
                 href="/"
                 className="px-4 py-2 flex items-center transition duration-150 ease-in-out"
               >
-                Eventos
+                Inicio
               </Link>
             </li>
             <li>
