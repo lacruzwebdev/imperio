@@ -41,7 +41,7 @@ export default async function Hito({ params }: Props) {
             height={img[0].formats.large.height}
             src={getStrapiURL(img[0].formats.large.url)}
             alt={img[0].alternativeText}
-            priority
+            priority={true}
           />
           <span className="absolute bottom-8 left-8 text-white font-bold text-xl shadow-xl">
             {img[0].alternativeText}
