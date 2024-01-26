@@ -21,7 +21,7 @@ export default async function Frases({}: Props) {
       <Link href="/sabias-que">
         <h2 className="text-3xl mb-2">Sabías que...</h2>
       </Link>
-      <div className="mt-12 text-center w-full flex flex-col">
+      <div className="mt-12 w-full flex flex-col items-start">
         <SabiasQue />
       </div>
     </section>
