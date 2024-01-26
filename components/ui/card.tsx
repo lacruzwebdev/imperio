@@ -40,7 +40,7 @@ export default function Card({
       >
         {img && (
           <Image
-            className="rounded-t-lg h-48 object-cover"
+            className="rounded-t-lg h-52 object-cover"
             width={img.formats.medium.width}
             height={img.formats.medium.height}
             src={getStrapiURL(img.formats.medium.url)}
@@ -50,7 +50,7 @@ export default function Card({
         )}
         {!img && (
           <Image
-            className="rounded-t-lg"
+            className="rounded-t-lg h-52 object-cover"
             src="/imperio.png"
             width={750}
             height={443}
