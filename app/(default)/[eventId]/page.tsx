@@ -122,7 +122,7 @@ export default async function Evento({ params }: Props) {
 
       {event.Imagen.length > 1 && <Carousel slides={event.Imagen} />}
       {event.Latitud !== 0 && event.Longitud !== 0 && (
-        <EventoMap lat={event.Latitud} long={event.Longitud} zoom={7} />
+        <EventoMap positions={[event]} zoom={7} />
       )}
     </section>
   )

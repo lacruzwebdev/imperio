@@ -1,8 +1,8 @@
-import Eventos from "@/components/eventos";
+import Hitos from "@/components/hitos";
 import { fetchHitos } from "@/lib/api"
 import { getCategories } from "@/lib/helpers";
 
-export default async function Hitos() {
+export default async function HitosGrid() {
    const data = await fetchHitos();
    const options = {
     month: 'long',
@@ -14,7 +14,7 @@ export default async function Hitos() {
    
   return (
     <div>
-      <Eventos type={'hitos'} data={data} date={date} categorias={categorias}/>
+      <Hitos data={data} categorias={categorias}/>
     </div>
   )
 }

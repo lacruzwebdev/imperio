@@ -88,17 +88,7 @@
   border: 0;
 }
 
-.mapboxgl-popup-content {
-  border-radius: 100% !important;
-  width: 30px;
-  height: 30px;
-  background: red !important;
-}
 
-.mapboxgl-popup-anchor-bottom .mapboxgl-popup-tip {
-  display: none;
-  border-top-color: red !important;
-}
 
 .yarl__slide_title_container {
   top: unset !important;

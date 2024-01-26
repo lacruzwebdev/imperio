@@ -6,6 +6,8 @@ type Evento = {
    Imagen: StrapiImage[]
    Relevancia: 0 | 1
    Categorias: Categoria[]
+   Latitud: number,
+   Longitud: number
 }
 
 type Categoria = {
