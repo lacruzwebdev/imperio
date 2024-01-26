@@ -37,6 +37,19 @@ type Frase = {
    Fecha: string
 }
 
+type SabiasQue = {
+   id: string,
+   Titulo: string,
+   Descripcion: string,
+   Autor: Autor
+}
+
+type Autor = {
+   Nombre: string
+   Twitter: string
+   Web: string
+}
+
 type Lectura = {
    id: number
    Titulo: string
