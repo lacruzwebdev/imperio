@@ -8,12 +8,14 @@ import { useState } from 'react'
 import { Button, buttonVariants } from './button'
 import Link from 'next/link'
 import { createSlug } from '@/lib/helpers'
+import { getStrapiURL } from '@/lib/api-helpers'
 
 type Props = {
   positions: Evento[]
   zoom?: number
+  height?: number
 }
-export default function EventoMap({ positions, zoom = 7 }: Props) {
+export default function EventoMap({ positions, zoom = 7, height }: Props) {
   const initialPos = positions.find((evento: Evento) => evento.Latitud !== 0 || evento.Longitud !== 0)
   const [popupInfo, setPopupInfo] = useState<Evento|null>(null);
   if (initialPos) {
@@ -28,6 +30,7 @@ export default function EventoMap({ positions, zoom = 7 }: Props) {
           longitude: initialPos.Longitud,
           zoom: zoom
         }}
+        style={{height: height ?? '50vh'}}
         maxZoom={10}
         minZoom={0}
         >
@@ -51,6 +54,9 @@ export default function EventoMap({ positions, zoom = 7 }: Props) {
           onClose={() => setPopupInfo(null)}
           >
             <div className="bg-white w-[200px] p-2 flex flex-col gap-2">
+              {popupInfo.Imagen &&
+              <img src={getStrapiURL(popupInfo.Imagen[0].formats.medium.url)} />
+              }
             <span>
               {popupInfo.Titulo}
             </span>

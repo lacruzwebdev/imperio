@@ -71,9 +71,9 @@ export default function Eventos({ data, date, categorias }: Props) {
             })}
       </Grid> 
       </TabsContent>
-      <TabsContent className="w-full" value="mapa">
+      <TabsContent className="w-full mapa-eventos" value="mapa">
         {hasMap ?
-          <EventoMap positions={data} zoom={2} />
+          <EventoMap positions={data} zoom={2} height={800}/>
           :  <p className="text-xl mt-8">No hay eventos con localización ¡Vuelve mañana para descubrir más!</p>
         }
       </TabsContent>
