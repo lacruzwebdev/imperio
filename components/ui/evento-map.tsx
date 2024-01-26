@@ -30,7 +30,7 @@ export default function EventoMap({ positions, zoom = 7, height }: Props) {
           longitude: initialPos.Longitud,
           zoom: zoom
         }}
-        style={{height: height ?? '50vh'}}
+        style={{height: height && window.screen.height > 991 ? `${height}svh` : '50svh'}}
         maxZoom={10}
         minZoom={0}
         >
