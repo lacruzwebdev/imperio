@@ -5,11 +5,12 @@ export async function fetchAPI(
   path: string,
   urlParamsObject = {},
   options = {},
+  cache = true
 ) {
   try {
     // Merge default and user options
     const mergedOptions = {
-      next: { revalidate: 0 },
+      next: cache ? { revalidate: 3600 } : { revalidate: 0 },
       headers: {
         "Content-Type": "application/json",
       },
@@ -67,12 +68,12 @@ export async function fetchLectura(id: Number) {
 }
 
 export async function fetchFrase() {
-  const data = await fetchAPI('fraserandom');
+  const data = await fetchAPI('fraserandom', {}, {}, false);
   return data;
 }
 
 export async function fetchSabias() {
-  const data = await fetchAPI('sabiasrandom');
+  const data = await fetchAPI('sabiasrandom', {}, {}, false);
   return data[0];
 }
 
