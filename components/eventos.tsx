@@ -1,5 +1,5 @@
 'use client'
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import Card from './ui/card'
 import { Categorias } from './ui/categorias'
 import Grid from './ui/grid'
@@ -12,6 +12,7 @@ import {
   TabsTrigger,
 } from "@/components/ui/tabs"
 import EventoMap from './ui/evento-map'
+import { useParams } from 'next/navigation'
 
 type Props = {
   data: Evento[]
@@ -21,6 +22,24 @@ type Props = {
 export default function Eventos({ data, date, categorias }: Props) {
   const [activeEvents, setActiveEvents] = useState(data)
   const [activeCategory, setActiveCategory] = useState('Todas')
+  const [activeTab, setActiveTab] = useState('eventos')
+
+  useEffect(() => {
+    if (window.location.hash === '#mapa') {
+      setActiveTab('mapa')
+    } else {
+      setActiveTab('eventos')
+    }
+  }, []);
+
+  const handleTab = (e: any) => {
+    if (e.currentTarget.textContent === 'Mapa') {
+      window.location.hash = `#${e.currentTarget.textContent.toLowerCase()}`
+    } else {
+      window.location.hash = ''
+    }
+    setActiveTab(`${e.currentTarget.textContent.toLowerCase()}`)
+  }
 
   const posiciones = data.map(item => ({lat: item.Latitud, long: item.Longitud}))
   const hasMap = posiciones.some(item => item.lat !== 0 || item.long !== 0)
@@ -28,10 +47,10 @@ export default function Eventos({ data, date, categorias }: Props) {
   return (
     <section className="max-w-screen-xl mx-auto p-8">
       <h1 className="acc-h">Imperio Español</h1>
-      <Tabs defaultValue="eventos" className="grid place-items-center">
+      <Tabs defaultValue='eventos' value={activeTab} className="grid place-items-center">
         <TabsList>
-          <TabsTrigger value="eventos" className="data-[state=active]:bg-red-500 data-[state=active]:text-white">Eventos</TabsTrigger>
-          <TabsTrigger value="mapa" className="data-[state=active]:bg-red-500 data-[state=active]:text-white">Mapa</TabsTrigger>
+          <TabsTrigger onClick={handleTab} value="eventos" className="data-[state=active]:bg-red-500 data-[state=active]:text-white">Eventos</TabsTrigger>
+          <TabsTrigger onClick={handleTab} value="mapa" className="data-[state=active]:bg-red-500 data-[state=active]:text-white">Mapa</TabsTrigger>
         </TabsList>
         {Array.isArray(data) && data.length > 0 ?
         <>
