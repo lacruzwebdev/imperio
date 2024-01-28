@@ -1,14 +1,39 @@
 'use client'
-import { Map, Marker, Popup } from 'react-map-gl'
+import { Map, Marker, Popup, useControl } from 'react-map-gl'
+import { MapboxStyleDefinition, MapboxStyleSwitcherControl } from "mapbox-gl-style-switcher";
 import 'mapbox-gl/dist/mapbox-gl.css'
+import "mapbox-gl-style-switcher/styles.css";
+
 
 import classes from './map.module.css'
 import Pin from './pin'
 import { useState } from 'react'
-import { Button, buttonVariants } from './button'
+import { buttonVariants } from './button'
 import Link from 'next/link'
 import { createSlug } from '@/lib/helpers'
 import { getStrapiURL } from '@/lib/api-helpers'
+
+const styles: MapboxStyleDefinition[] = [
+    {
+        title: "Imperio",
+        uri:"mapbox://styles/mapbox/dark-v11"
+    },
+    {
+        title: "Estándar",
+        uri:"mapbox://styles/mapbox/outdoors-v12"
+    },
+    {
+        title: "Satélite",
+        uri:"mapbox://styles/mapbox/satellite-v9"
+    }
+];
+
+function DrawControl() {
+  useControl(() => new MapboxStyleSwitcherControl(styles));
+  return null;
+}
+
+
 
 type Props = {
   positions: Evento[]
@@ -34,6 +59,7 @@ export default function EventoMap({ positions, zoom = 7, height }: Props) {
         maxZoom={10}
         minZoom={0}
         >
+        <DrawControl />
         {positions.map((evento, i) => (
           <Marker key={i} latitude={evento.Latitud} longitude={evento.Longitud} anchor="bottom"
                     onClick={e => {
