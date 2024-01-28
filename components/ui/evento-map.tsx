@@ -80,7 +80,7 @@ export default function EventoMap({ positions, zoom = 7, height }: Props) {
           onClose={() => setPopupInfo(null)}
           >
             <div className="bg-white w-[200px] p-2 flex flex-col gap-2">
-              {popupInfo.Imagen &&
+              {popupInfo.Imagen[0] &&
               <img src={getStrapiURL(popupInfo.Imagen[0].formats.medium.url)} />
               }
             <span>
