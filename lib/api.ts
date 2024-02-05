@@ -35,7 +35,7 @@ export async function fetchAPI(
 }
 
 export async function fetchTodayEvents() {
-  const date = new Date();
+  const date = new Date(2024, 1, 4);
   const month = date.getMonth() + 1;
   const day = date.getDate();
   const data = await fetchAPI(`taldiahoy/${month}/${day}`)
