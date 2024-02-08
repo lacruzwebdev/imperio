@@ -30,7 +30,7 @@ export default async function Evento({ params }: Props) {
 	const options = {
 		dateStyle: 'long'
 	} as const
-	const eventDate = new Date(event.Fecha)
+	const eventDate = new Date(`${event.Fecha}T01:00Z`)
 	const date = new Intl.DateTimeFormat('es-ES', options)
 		.format(eventDate)
 		.split(' ')
