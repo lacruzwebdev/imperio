@@ -38,8 +38,10 @@ export async function fetchTodayEvents() {
   const date = new Date();
   const month = date.getMonth() + 1;
   const day = date.getDate();
-  const data = await fetchAPI(`taldiahoy/${month}/${day}`)
-  return data
+  const dataToday = await fetchAPI(`taldiahoy/${month}/${day}`)
+  const dataYesterday = await fetchAPI(`taldiahoy/${month}/${day - 1}`)
+  const dataTomorrow = await fetchAPI(`taldiahoy/${month}/${day + 1}`)
+  return [...dataToday, ...dataYesterday, ...dataTomorrow]
 }
 
 export async function fetchHitos() {
