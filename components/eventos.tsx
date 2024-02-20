@@ -3,11 +3,10 @@ import { useEffect, useRef, useState } from 'react'
 import Card from './ui/card'
 import { Categorias } from './ui/categorias'
 import Grid from './ui/grid'
-import { hasCategory } from '@/lib/helpers'
+import { hasCategory, isToday } from '@/lib/helpers'
 import Link from 'next/link'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import EventoMap from './ui/evento-map'
-import { useParams } from 'next/navigation'
 
 type Props = {
 	data: Evento[]
@@ -15,7 +14,9 @@ type Props = {
 	categorias: string[]
 }
 export default function Eventos({ data, date, categorias }: Props) {
-	const [activeEvents, setActiveEvents] = useState(data)
+	const [activeEvents, setActiveEvents] = useState(
+		data.filter((event) => isToday(event.Fecha))
+	)
 	const [activeCategory, setActiveCategory] = useState('Todas')
 	const [activeTab, setActiveTab] = useState('eventos')
 
