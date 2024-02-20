@@ -134,7 +134,7 @@ export default function Eventos({ data, categorias }: Props) {
 						</TabsContent>
 						<TabsContent className="w-full mapa-eventos" value="mapa">
 							{hasMap ? (
-								<EventoMap positions={data} zoom={2} height={100} />
+								<EventoMap positions={activeEvents} zoom={2} height={100} />
 							) : (
 								<p className="text-xl mt-8">
 									No hay eventos con localización ¡Vuelve mañana para descubrir
