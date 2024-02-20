@@ -24,7 +24,7 @@ export function createSlug(title: string): string {
     .replace(/\-\-+/g, '-'); 
 }
 
-export function getCategories(data: []) {
+export function getCategories(data: Evento[]) {
   let categorias: string[] = ['Todas']
   let categoriasSet = data.reduce((set: Set<string>, item: Evento) => {
     item.Categorias.forEach(({ Nombre }: Categoria) => set.add(Nombre))
