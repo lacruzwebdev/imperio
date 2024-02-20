@@ -7,6 +7,8 @@ import { hasCategory, isToday } from '@/lib/helpers'
 import Link from 'next/link'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import EventoMap from './ui/evento-map'
+import Spinner from './ui/spinner'
+import SkeletonCard from './ui/skeleton-card'
 
 type Props = {
 	data: Evento[]
@@ -14,16 +16,11 @@ type Props = {
 	categorias: string[]
 }
 export default function Eventos({ data, date, categorias }: Props) {
-	const [activeEvents, setActiveEvents] = useState(
-		data.filter((event) => isToday(event.Fecha))
-	)
+	const [isLoading, setIsLoading] = useState(true)
+	const [activeEvents, setActiveEvents] = useState<Evento[]>([])
 	const [activeCategory, setActiveCategory] = useState('Todas')
 	const [activeTab, setActiveTab] = useState('eventos')
-	const options = {
-		month: 'long',
-		day: 'numeric'
-	} as const
-	const localDate = new Intl.DateTimeFormat('es-ES', options).format(new Date())
+	const [localDate, setLocalDate] = useState('')
 
 	useEffect(() => {
 		if (window.location.hash === '#mapa') {
@@ -31,7 +28,14 @@ export default function Eventos({ data, date, categorias }: Props) {
 		} else {
 			setActiveTab('eventos')
 		}
-	}, [])
+		const options = {
+			month: 'long',
+			day: 'numeric'
+		} as const
+		setActiveEvents(data.filter((event) => isToday(event.Fecha)))
+		setLocalDate(new Intl.DateTimeFormat('es-ES', options).format(new Date()))
+		setIsLoading(false)
+	}, [data])
 
 	const handleTab = (e: any) => {
 		if (e.currentTarget.textContent === 'Mapa') {
@@ -75,7 +79,7 @@ export default function Eventos({ data, date, categorias }: Props) {
 				{Array.isArray(data) && data.length > 0 ? (
 					<>
 						<TabsContent
-							className="max-w-screen-xl mx-auto p-8"
+							className="max-w-screen-xl mx-auto p-8 w-full"
 							value="eventos"
 						>
 							<div className="flex justify-between flex-col md:flex-row mb-8 md:mb-0">
@@ -83,7 +87,19 @@ export default function Eventos({ data, date, categorias }: Props) {
 									<Link href="/">
 										<h2 className="text-3xl mb-2">Tal día como hoy...</h2>
 									</Link>
-									<p className="text-primary text-xl mb-4">{localDate}</p>
+									{isLoading ? (
+										<div role="status" className="max-w-sm animate-pulse mb-3">
+											<div className="h-6 bg-gray-200 rounded-full dark:bg-gray-700 w-48 mb-4"></div>
+											<span className="sr-only">Loading...</span>
+										</div>
+									) : (
+										<p
+											suppressHydrationWarning
+											className="text-primary text-xl mb-4"
+										>
+											{localDate}
+										</p>
+									)}
 								</div>
 								<Categorias
 									opciones={categorias}
@@ -91,26 +107,30 @@ export default function Eventos({ data, date, categorias }: Props) {
 								/>
 							</div>
 							<Grid>
-								{activeEvents.map((evento: Evento, index: number) => {
-									if (
-										hasCategory(evento, activeCategory) ||
-										activeCategory === 'Todas'
-									) {
-										return (
-											<Card
-												type={'eventos'}
-												key={evento.id}
-												id={evento.id}
-												fecha={evento.Fecha}
-												title={evento.Titulo}
-												description={evento.Descripcion}
-												img={evento.Imagen[0]}
-												relevancia={evento.Relevancia}
-												priority={index < 2}
-											/>
-										)
-									}
-								})}
+								{isLoading
+									? Array.from(Array(3).keys()).map((item) => (
+											<SkeletonCard key={crypto.randomUUID()} />
+									  ))
+									: activeEvents.map((evento: Evento, index: number) => {
+											if (
+												hasCategory(evento, activeCategory) ||
+												activeCategory === 'Todas'
+											) {
+												return (
+													<Card
+														type={'eventos'}
+														key={evento.id}
+														id={evento.id}
+														fecha={evento.Fecha}
+														title={evento.Titulo}
+														description={evento.Descripcion}
+														img={evento.Imagen[0]}
+														relevancia={evento.Relevancia}
+														priority={index < 2}
+													/>
+												)
+											}
+									  })}
 							</Grid>
 						</TabsContent>
 						<TabsContent className="w-full mapa-eventos" value="mapa">
