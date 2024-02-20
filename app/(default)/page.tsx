@@ -14,6 +14,6 @@ export default async function Home({}: Props) {
   const categorias = getCategories(data);
 
   	return (
-      <Eventos data={data} date={date} categorias={categorias} />
+      <Eventos data={data} categorias={categorias} />
 		)
 }
