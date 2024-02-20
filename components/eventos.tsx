@@ -12,10 +12,9 @@ import SkeletonCard from './ui/skeleton-card'
 
 type Props = {
 	data: Evento[]
-	date: string
 	categorias: string[]
 }
-export default function Eventos({ data, date, categorias }: Props) {
+export default function Eventos({ data, categorias }: Props) {
 	const [isLoading, setIsLoading] = useState(true)
 	const [activeEvents, setActiveEvents] = useState<Evento[]>([])
 	const [activeCategory, setActiveCategory] = useState('Todas')
