@@ -19,6 +19,11 @@ export default function Eventos({ data, date, categorias }: Props) {
 	)
 	const [activeCategory, setActiveCategory] = useState('Todas')
 	const [activeTab, setActiveTab] = useState('eventos')
+	const options = {
+		month: 'long',
+		day: 'numeric'
+	} as const
+	const localDate = new Intl.DateTimeFormat('es-ES', options).format(new Date())
 
 	useEffect(() => {
 		if (window.location.hash === '#mapa') {
@@ -78,7 +83,7 @@ export default function Eventos({ data, date, categorias }: Props) {
 									<Link href="/">
 										<h2 className="text-3xl mb-2">Tal día como hoy...</h2>
 									</Link>
-									<p className="text-primary text-xl mb-4">{date}</p>
+									<p className="text-primary text-xl mb-4">{localDate}</p>
 								</div>
 								<Categorias
 									opciones={categorias}
