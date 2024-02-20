@@ -53,7 +53,7 @@ export default function Eventos({ data, date, categorias }: Props) {
 	const hasMap = posiciones.some((item) => item.lat !== 0 || item.long !== 0)
 
 	return (
-		<section>
+		<section className={isLoading ? 'min-h-screen' : ''}>
 			<h1 className="acc-h">Imperio Español</h1>
 			<Tabs
 				defaultValue="eventos"
