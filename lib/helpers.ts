@@ -33,3 +33,12 @@ export function getCategories(data: Evento[]) {
 
   return Array.from(categoriasSet)
 }
+
+export function isToday(eventDate: string) {
+  const [year, month, day] = eventDate.split('-').map(Number);
+  const date = new Date();
+  const currentDay = date.getDate();
+  const currentMonth = date.getMonth() + 1;
+
+  return currentDay === day && currentMonth === month;
+}
