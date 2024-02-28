@@ -14,7 +14,7 @@ type Props = {
 	data: Evento[]
 	categorias: string[]
 }
-export default function Eventos({ data, categorias }: Props) {
+export default function Eventos({ data }: Props) {
 	const [isLoading, setIsLoading] = useState(true)
 	const [activeEvents, setActiveEvents] = useState<Evento[]>([])
 	const [activeCategory, setActiveCategory] = useState('Todas')

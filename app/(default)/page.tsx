@@ -4,16 +4,14 @@ import { getCategories } from '@/lib/helpers'
 
 type Props = {}
 export default async function Home({}: Props) {
-  const data = await fetchTodayEvents()
-  const options = {
-    month: 'long',
-    day: 'numeric'
-  } as const
-  const date = new Intl.DateTimeFormat('es-ES', options).format(new Date())
-  
-  const categorias = getCategories(data);
+	const data = await fetchTodayEvents()
+	const options = {
+		month: 'long',
+		day: 'numeric'
+	} as const
+	const date = new Intl.DateTimeFormat('es-ES', options).format(new Date())
 
-  	return (
-      <Eventos data={data} categorias={categorias} />
-		)
+	const categorias = getCategories(data)
+
+	return <Eventos data={data} />
 }
