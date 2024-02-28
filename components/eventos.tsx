@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from 'react'
 import Card from './ui/card'
 import { Categorias } from './ui/categorias'
 import Grid from './ui/grid'
-import { hasCategory, isToday } from '@/lib/helpers'
+import { getCategories, hasCategory, isToday } from '@/lib/helpers'
 import Link from 'next/link'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import EventoMap from './ui/evento-map'
@@ -12,7 +12,6 @@ import SkeletonCard from './ui/skeleton-card'
 
 type Props = {
 	data: Evento[]
-	categorias: string[]
 }
 export default function Eventos({ data }: Props) {
 	const [isLoading, setIsLoading] = useState(true)
@@ -20,6 +19,7 @@ export default function Eventos({ data }: Props) {
 	const [activeCategory, setActiveCategory] = useState('Todas')
 	const [activeTab, setActiveTab] = useState('eventos')
 	const [localDate, setLocalDate] = useState('')
+	const [categorias, setCategorias] = useState<string[]>([])
 
 	useEffect(() => {
 		if (window.location.hash === '#mapa') {
@@ -35,6 +35,12 @@ export default function Eventos({ data }: Props) {
 		setLocalDate(new Intl.DateTimeFormat('es-ES', options).format(new Date()))
 		setIsLoading(false)
 	}, [data])
+
+	useEffect(() => {
+		if (activeEvents.length > 0) {
+			setCategorias(getCategories(activeEvents))
+		}
+	}, [activeEvents])
 
 	const handleTab = (e: any) => {
 		if (e.currentTarget.textContent === 'Mapa') {
