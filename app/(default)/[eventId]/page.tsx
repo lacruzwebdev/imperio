@@ -3,7 +3,7 @@ import EventoMap from '@/components/ui/evento-map'
 import SocialShare from '@/components/ui/social-share'
 import TTS from '@/components/ui/tts'
 import { fetchEvent } from '@/lib/api'
-import { getStrapiURL } from '@/lib/api-helpers'
+import { getStrapiImage } from '@/lib/api-helpers'
 import { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -43,6 +43,9 @@ export default async function Evento({ params }: Props) {
 	const day = new Intl.DateTimeFormat('es-ES', { weekday: 'long' }).format(
 		eventDate
 	)
+
+	const mainImage = getStrapiImage(img[0])
+
 	return (
 		<>
 			<section>
@@ -61,16 +64,16 @@ export default async function Evento({ params }: Props) {
 					</div>
 				</div>
 				{img.length > 0 && (
-					<div className="relative">
+					<div className="relative w-full max-w-screen-xl mx-auto">
 						<Image
 							className="mx-auto w-full"
-							width={img[0].formats.large.width}
-							height={img[0].formats.large.height}
-							src={getStrapiURL(img[0].formats.large.url)}
-							alt={img[0].alternativeText}
+							width={mainImage.width}
+							height={mainImage.height}
+							src={mainImage.url}
+							alt={mainImage.alt}
 							priority={true}
 						/>
-						<span className="absolute bottom-2 left-3 md:bottom-8 md:left-8 text-white font-bold text-sm md:text-xl shadow-xl">
+						<span className="absolute bottom-2 left-3 md:bottom-8 md:left-8 text-white font-bold text-sm md:text-xl">
 							{img[0].alternativeText}
 						</span>
 					</div>
