@@ -16,6 +16,48 @@ export function getStrapiMedia(url: string | null) {
     return `${getStrapiURL()}${url}`;
 }
 
+export function getStrapiImage(img: Image, format: 'large' | 'medium' | 'small' | 'thumbnail' = 'large'): {url: string, width: number, height: number, alt: string} {
+    const defaultImg = 'https://placehold.co/600x400'
+    if (img == null) {
+        return {
+            url: defaultImg,
+            width: 600,
+            height: 400,
+            alt: ''
+        };
+    }
+
+    if (img.formats[format]) {
+        return {
+            url: getStrapiMedia(img.formats[format].url) ?? defaultImg,
+            width: img.formats[format].width,
+            height: img.formats[format].height,
+            alt: img.alternativeText
+        }
+    } else {
+        const order = ['large', 'medium', 'small', 'thumbnail']
+
+        order.forEach(format => {
+            if (img.formats[format]) {
+                return {
+                    url: getStrapiMedia(img.formats[format].url),
+                    width: img.formats[format].width,
+                    height: img.formats[format].height,
+                    alt: img.alternativeText
+                }
+            }
+        })
+    }
+
+     return {
+            url: defaultImg,
+            width: 600,
+            height: 400,
+            alt: ''
+        };
+
+}
+
 export function formatDate(dateString: string) {
     const date = new Date(dateString);
     const options: Intl.DateTimeFormatOptions = { year: 'numeric', month: 'long', day: 'numeric' };
