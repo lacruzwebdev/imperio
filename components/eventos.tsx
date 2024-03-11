@@ -155,7 +155,7 @@ export default function Eventos({ data }: Props) {
 					</p>
 				)}
 			</Tabs>
-			<img className="max-w-screen-md mx-auto w-full" src="/efemerides.svg" />
+			<img className="mx-auto w-full" src="/efemerides-full.svg" />
 		</section>
 	)
 }
