@@ -156,13 +156,10 @@ export default function Eventos({ data }: Props) {
 				)}
 			</Tabs>
 			<img
-				className="hidden md:block mx-auto w-full"
+				className="hidden lg:block mx-auto w-full"
 				src="/efemerides-full.svg"
 			/>
-			<img
-				className="mx-auto p-8 max-w-screen-xl w-full md:hidden"
-				src="/efemerides.svg"
-			/>
+			<img className="w-full lg:hidden bg-[#ff0000]" src="/efemerides.svg" />
 		</section>
 	)
 }
