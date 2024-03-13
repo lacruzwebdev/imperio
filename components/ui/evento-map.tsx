@@ -99,7 +99,7 @@ export default function EventoMap({ positions, zoom = 7, height }: Props) {
 										src={getStrapiURL(popupInfo.Imagen[0].formats.medium.url)}
 									/>
 								)}
-								<span>{popupInfo.Titulo}</span>
+								<span className="font-bold">{popupInfo.Titulo}</span>
 								<Link
 									href={`${popupInfo.id}-${createSlug(popupInfo.Titulo)}`}
 									className={buttonVariants({ size: 'sm' })}
