@@ -29,6 +29,11 @@ export async function fetchAPI(path: string, urlParamsObject = {}, options = {},
 
 export async function fetchTodayEvents() {
   const date = new Date()
+  const data = fetchEventsFromDate(date)
+  return data
+}
+
+export async function fetchEventsFromDate(date: Date) {
   const month = date.getMonth() + 1
   const day = date.getDate()
   const dataToday = await fetchAPI(`taldiahoy/${month}/${day}`)
