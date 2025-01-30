@@ -25,11 +25,11 @@ export default function Card({
   priority = false
 }: Props) {
   const descriptionMaxLength = 200
-  let url = `${id}-${createSlug(title)}`;
+  let url = `/${id}-${createSlug(title)}`;
   if (type === 'hitos') {
-    url = `hitos/${url}`
+    url = `/hitos/${url}`
   } else if (type === 'lecturas') {
-    url = `lecturas/${url}`
+    url = `/lecturas/${url}`
   }
   return (
     <Link href={url}>

@@ -60,22 +60,22 @@ export default async function Evento({ params }: Props) {
             </p>
           </div>
         </div>
-        {img.length > 0 && (
-          <div className="relative w-full max-w-screen-xl mx-auto">
-            <Image
-              className="lg:w-1/2 lg:float-left lg:m-8 w-full"
-              width={mainImage.width}
-              height={mainImage.height}
-              src={mainImage.url}
-              alt={mainImage.alt}
-              priority={true}
-            />
-            <span className="absolute bottom-2 left-3 md:bottom-8 md:left-8 text-white font-bold text-sm md:text-xl">
-              {img[0].alternativeText}
-            </span>
-          </div>
-        )}
         <div className="max-w-screen-xl mx-auto p-8">
+          {img.length > 0 && (
+            <div className="relative lg:w-1/2 lg:float-left lg:mr-8 mb-8 w-full max-w-screen-xl mx-auto">
+              <Image
+                className="w-full"
+                width={mainImage.width}
+                height={mainImage.height}
+                src={mainImage.url}
+                alt={mainImage.alt}
+                priority={true}
+              />
+              <span className="absolute bottom-2 left-3 md:bottom-8 md:left-8 text-white font-bold text-sm md:text-xl drop-shadow-xl">
+                {img[0].alternativeText}
+              </span>
+            </div>
+          )}
           <h1 className="mb-4 text-2xl font-bold tracking-tight">{event.Titulo}</h1>
           <Markdown className="space-y-6 mb-10">{event.Descripcion}</Markdown>
           {event.Autores && (
@@ -175,7 +175,7 @@ export default async function Evento({ params }: Props) {
                     className="hover:fill-primary w-8 h-8"
                     stroke="currentColor"
                     fill="currentColor"
-                    stroke-width="0"
+                    strokeWidth="0"
                     viewBox="0 0 640 512"
                     height="200px"
                     width="200px"
