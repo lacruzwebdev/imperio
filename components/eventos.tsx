@@ -84,8 +84,8 @@ export default function Eventos({ date, data }: Props) {
         </TabsList>
         {Array.isArray(data) && data.length > 0 ? (
           <>
-            <TabsContent className="max-w-screen-xl mx-auto p-8 w-full" value="eventos">
-              <div className="flex justify-between flex-col md:flex-row mb-8 md:mb-0">
+            <TabsContent className="max-w-screen-xl mx-auto md:p-8 w-full" value="eventos">
+              <div className="flex justify-between flex-col md:flex-row mb-8 md:mb-0 p-8">
                 <div>
                   <Link href="/">
                     <h2 className="text-3xl mb-2">Tal día como hoy...</h2>

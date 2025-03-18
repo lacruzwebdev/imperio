@@ -71,7 +71,7 @@ export default async function Evento({ params }: Props) {
                 alt={mainImage.alt}
                 priority={true}
               />
-              <span className="absolute bottom-2 left-3 md:bottom-8 md:left-8 text-white font-bold text-sm md:text-xl drop-shadow-xl">
+              <span className="absolute bottom-2 left-3 md:bottom-8 md:left-8 text-white font-bold text-sm md:text-xl text-shadow">
                 {img[0].alternativeText}
               </span>
             </div>

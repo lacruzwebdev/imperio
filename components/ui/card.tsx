@@ -34,13 +34,13 @@ export default function Card({
   return (
     <Link href={url}>
       <div
-        className={`rounded-lg shadow h-full ${
+        className={`md:rounded-lg md:shadow h-full ${
           relevancia > 0 ? 'bg-primary' : 'bg-white'
         }`}
       >
         {img && (
           <Image
-            className="rounded-t-lg h-52 object-cover"
+            className="md:rounded-t-lg h-52 object-cover"
             width={img.formats.medium.width}
             height={img.formats.medium.height}
             src={getStrapiURL(img.formats.medium.url)}
